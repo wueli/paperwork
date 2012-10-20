@@ -43,7 +43,9 @@ We expect to get both a significant and a relevant difference between the option
 ## References 
 
 Helbling, Dirk - Molnar, Peter (1995): Social Force Model for Pedestrians Dynamics
+
 Helbling, Dirk et al. (2005): Self-Organized Pedestrian Crowd Dynamics: Experiments, Simulations, and Design Solutions
+
 Schadschneider, Andreas et al. (2002): CA Approach to Collective Phenomena in Pedestrian Dynamics
 
 (Add the bibliographic references you intend to use)
