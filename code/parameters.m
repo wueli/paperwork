@@ -1,11 +1,11 @@
 %parameters
-nof_agents=4;
+nof_agents=8;
 
 v0=2.1;     %durchschnittliche Laufgeschwindigkeit
 s=0.3;      %Standardabweichung von v0
-Fpers=20;   %Faktor von Abstossungskräften von Agents
+Fpers=50;   %Faktor von Abstossungskräften von Agents
 Tau=0.1;    %Faktor bei Kraft zum Ziel
-t=0.15;     %delta t
+t=0.15;     %delta t 
 
 a=[180 200];      %erster Zielbereich, x-Bereich
 b=[80 100];    %y-Bereich

@@ -1,17 +1,24 @@
 function M=plotter(A,pot,n,Gx,Gy);
-parameters;
+parameters; 
+        cla;                 %Anstelle von hold off am Ende, löscht die "inhalte", dadurch kann Karte.bmp richtig eingelesen werden
+                            % aber fragt micht nicht wieso das es funktioniert xD
         contour(pot);       %Äquipotential-linien
         hold on;
         %quiver(Gx,Gy)       %Gradient
-        %hold on
-        %imagesc(imread('Bilder/Karte.bmp','bmp')) geht leider nicht!
+        %hold on   
+        [X,map]=imread('Bilder/Karte.bmp','bmp');   
+        gray=ind2gray(X,map);        %indexed to graustufen Bild konvertieren
+        gray=flipud(gray);  
+        %[XA,map2]=imread('Bilder/Karte_Potential_klein.bmp','bmp');
+        imshow(gray);           %Bild ausgeben, dadurch wird aber das ganze Bild gekehrt/Achsen fallen weg
         %colormap(gray)
         %axis([0 250 0 250]);
         %hold on
-        rectangle('position',[a(1),b(1),a(2)-a(1),b(2)-b(1)])
+        rectangle('position',[a(1),b(1),a(2)-a(1),b(2)-b(1)]);
         hold on
-        plot(A(:,1),A(:,2),'o') %Agents
+        plot(A(:,1),A(:,2),'o'); %Agents
         axis([0 250 0 250]);
         M(n) = getframe;        %für video
-        hold off;
+        %hold off
+      
 end
