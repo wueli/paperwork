@@ -8,5 +8,7 @@ parameters;
         A(i,5)=200;                  %goal x
         A(i,6)=90;                   %goal y
         A(i,7)=(v0+randn*s);         %Gaussverteilte Geschwindigkeit v0
+        A(i,8)=0;                    %edge x
+        A(i,9)=0;                    %edge y
     end
 end

@@ -8,7 +8,7 @@ parameters;
 
 
 A=initialisation();   %A initialisieren
-vidObj=videowriter('simulation.avi');
+vidObj=VideoWriter('simulation.avi');
 open(vidObj);
     for n=1:iter
         for i=1:nof_agents
