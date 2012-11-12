@@ -8,8 +8,8 @@ parameters;
             d=sqrt((A(i,1)-A(j,1))^2+(A(i,2)-A(j,2))^2);
             n=[A(j,1)-A(i,1);A(j,2)-A(i,2)]/d;
             phi=angle(complex(-n))-angle(complex(v_n));
-            FX=A1*exp(r_agents-d)/B1*n(1)*(lambda+(1-lambda)*(1+cos(phi))/2)+A2*exp((r_agents-d)/B2)*n(1);
-            FY=A1*exp(r_agents-d)/B1*n(2)*(lambda+(1-lambda)*(1+cos(phi))/2)+A2*exp((r_agents-d)/B2)*n(2);
+            FX=FX+A1*exp(r_agents-d)/B1*n(1)*(lambda+(1-lambda)*(1+cos(phi))/2)+A2*exp((r_agents-d)/B2)*n(1);
+            FY=FX+A1*exp(r_agents-d)/B1*n(2)*(lambda+(1-lambda)*(1+cos(phi))/2)+A2*exp((r_agents-d)/B2)*n(2);
 
           end
     end
