@@ -8,7 +8,7 @@ parameters;
 
 
 A=initialisation();   %A initialisieren
-vidObj=VideoWriter('simulation.avi');
+vidObj=videowriter('simulation.avi');
 open(vidObj);
     for n=1:iter
         for i=1:nof_agents
@@ -17,7 +17,7 @@ open(vidObj);
            
             [FX2,FY2]=walls(A,i,Gx,Gy);
             
-            %[FX3,FY3]=other_agents(A,i);
+            [FX3,FY3]=other_agents(A,i);
             FX3=0;
             FY3=0;
                        
