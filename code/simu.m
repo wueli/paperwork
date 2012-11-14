@@ -5,14 +5,16 @@ function simu()
 parameters;
 
 [Gx,Gy,pot]=pot2grad('Bilder/Karte_Potential_klein.bmp','bmp'); %Bild einlesen
-
+B = edges_id('Bilder/Karte_Potential_edges.bmp','bmp');   %erkennt und Speichert die Ecken, braucht dazu extra manipuliertes Bild
 
 A=initialisation();   %A initialisieren
-vidObj=videowriter('simulation.avi');
+%A=rand_startvalue(A);   %ändert das Ziel für eine gewisse Prozentzahl
+
+vidObj=VideoWriter('simulation.avi');
 open(vidObj);
     for n=1:iter
         for i=1:nof_agents
-            
+            % A=polygon_id(A,B,gray,i)  %Macht die Polygonfunktion,nicht fertig
             [FX1,FY1]=destination(A,i);
            
             [FX2,FY2]=walls(A,i,Gx,Gy);
@@ -20,9 +22,9 @@ open(vidObj);
             [FX3,FY3]=other_agents(A,i);
                        
             FX=FX1+FX2+FX3;
-            F_dest_wall_age_x=[FX1 FX2 FX3 i]
+            F_dest_wall_age_x=[FX1 FX2 FX3 i];
             FY=FY1+FY2+FY3;
-            F_dest_wall_age_y=[FY1 FY2 FY3 i]
+            F_dest_wall_age_y=[FY1 FY2 FY3 i];
             
             A=int(A,i,FX,FY);
             A=destination_change(A,i);

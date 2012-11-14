@@ -1,8 +1,8 @@
-function [B] = edges_id()
+function B = edges_id(filename,filetype)
 %UNTITLED3 Do the edges-dance
 %   explanation
 
-mapedges=imread('Bilder/Karte_Potential_edges.bmp','bmp');
+mapedges=imread(filename,filetype); %karte noch wechseln
 l=size(mapedges);
 
 %Matrix mit X und y Werte der Punkte

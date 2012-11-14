@@ -6,10 +6,6 @@ parameters;
         hold on;
         %quiver(Gx,Gy)       %Gradient
         %hold on   
-        [X,map]=imread('Bilder/Karte.bmp','bmp');   
-        gray=ind2gray(X,map);        %indexed to graustufen Bild konvertieren
-        gray=flipud(gray);  
-        %[XA,map2]=imread('Bilder/Karte_Potential_klein.bmp','bmp');
         imshow(gray);           %Bild ausgeben, dadurch wird aber das ganze Bild gekehrt/Achsen fallen weg
         %colormap(gray)
         %axis([0 250 0 250]);
