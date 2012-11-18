@@ -1,5 +1,5 @@
 %parameters
-nof_agents=20;
+nof_agents=3;
 pxm=15; %pixel pro meter
 
 v0=1.3*pxm;     %durchschnittliche Laufgeschwindigkeit
@@ -26,6 +26,9 @@ percentage=0.5;     %The value of papertaker in % (zufallsverteilt)
 
 % Bild wird eingelesen, als Hintergrund, wird auch für polygon_id
 % gebraucht!
-[X,map]=imread('Bilder/Karte.bmp','bmp');   
- gray=ind2gray(X,map);        %indexed to graustufen Bild konvertieren
+[X]=imread('Bilder/PlanBhf.bmp','bmp');   
+ gray=rgb2gray(X);        %indexed to graustufen Bild konvertieren
  gray=flipud(gray);  
+%   imshow(gray)
+ 
+
