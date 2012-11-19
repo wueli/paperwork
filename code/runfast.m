@@ -2,10 +2,10 @@ function [FOX,FOY] = runfast()
 
 
 %read picture/generate forcfield
-path('toolbox_fast_marching',path);
+
 f=getmap();
 
-for i=2%:7 %iteriert über alle 5 möglichen Ausgänge, d.h. alle Richtungsvektorfelder (normiert)
+for i=6%:7 %iteriert über alle 5 möglichen Ausgänge, d.h. alle Richtungsvektorfelder (normiert)
 [FX,FY]=computeGradientField(f,i);
 hold on
 %subplot(2,3,i-1)

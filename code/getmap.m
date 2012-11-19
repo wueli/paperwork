@@ -36,7 +36,7 @@ F(exit_east)=6;
 F=placebox(F,180,300,0);  %platziert Box: eingabe(F, x0,y0, alpha)
  
 F=flipud(F);
-imshow(F);
+% imshow(F);
 end
 
 
