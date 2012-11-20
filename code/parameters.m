@@ -1,6 +1,6 @@
 %parameters
-nof_agents=10;
-pxm=15; %pixel pro meter
+nof_agents=3;
+pxm=15; %pixel pro meter3
 
 v0=1.3*pxm;     %durchschnittliche Laufgeschwindigkeit
 s=0.3*pxm;      %Standardabweichung von v0

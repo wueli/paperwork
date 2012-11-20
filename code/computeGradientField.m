@@ -34,15 +34,15 @@ function [FX,FY] = computeGradientField( F,i )
    
   SpeedImage = NewF;
   tic; [D, Y] = msfm(SpeedImage, Exits, false, false); toc;
-  hold on
+%   hold on
   D(D>600)=0;
-  subplot(1,2,1)
-  D2=flipud(D);
-   imshow(D2,[]); colormap(hot(256));
-[FX,FY]=gradient_special2(D);
-  subplot(1,2,2)
-  quiver(FX,FY);
-  
+%   subplot(1,2,1)
+%   D2=flipud(D);
+%    imshow(D2,[]); colormap(hot(256));
+    [FX,FY]=gradient_special2(D);
+%   subplot(1,2,2)
+%   quiver(FX,FY);
+%   
 end
 
 
