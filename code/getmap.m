@@ -25,7 +25,7 @@ exit_south=find(I==10);
 exit_northr=find(I==8);
 exit_northl=find(I==7);
 exit_east=find(I==6);
-space=find(I==13);
+space=find(I==14);
 box=find(I==5);
 F=zeros(n,m);
 F(wall)=0;

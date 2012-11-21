@@ -21,6 +21,9 @@ lambda=0.75;
 A2=3*pxm;
 B2=0.2*pxm;
 
+U=10*pxm;
+R=0.2*pxm;
+
 percentage=0.5;     %The value of papertaker in % (zufallsverteilt)
 
 
