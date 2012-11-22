@@ -29,9 +29,18 @@ percentage=0.5;     %The value of papertaker in % (zufallsverteilt)
 
 % Bild wird eingelesen, als Hintergrund, wird auch für polygon_id
 % gebraucht!
-[X]=imread('Bilder/PlanBhf.bmp','bmp');   
- gray=rgb2gray(X);        %indexed to graustufen Bild konvertieren
- gray=flipud(gray);  
-%   imshow(gray)
+[X,map]=imread('Bilder/PlanBhf_box.bmp','bmp');   
+ 
+gray=ind2gray(X,map); 
+[a,b]=size(X);
+%Setz Alle Graustufenwerte ungleich Schwarz auf weiss
+for m=1:a
+    for n=1:b
+        if(gray(m,n)~=0)
+ graycl(m,n)=255;
+        end
+    end
+end
+ imshow(graycl)
  
 

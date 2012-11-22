@@ -9,7 +9,7 @@ parameters;
         A(i,6)=0;                   % current goal y +inital goal
         A(i,7)=-A(i,4);       %Gaussverteilte Geschwindigkeit v0
         A(i,8)=1;                    %Final goal x (can't be changed)
-       
+        A(i,9)=A(i,8);
         
     end
    

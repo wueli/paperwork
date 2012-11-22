@@ -11,8 +11,6 @@ W(wall)=0;
 
 for i=2:7 %iteriert über alle 5 möglichen Ausgänge, d.h. alle Richtungsvektorfelder (normiert)
 [FX,FY]=computeGradientField(f,i);
-hold on
-subplot(2,3,i-1)
 if(i==2);
 [a,b]=size(FX);
 FOX=ones(a,b,6);

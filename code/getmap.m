@@ -11,7 +11,7 @@ function [F] = getmap()
 % %     uiwait(msgbox('Wrong file'));
 % % end
 % %end
-[X,map]=imread('Bilder/PlanBhfcol_boxtry.bmp');
+[X,map]=imread('Bilder/PlanBhf_box.bmp');
 I=im2double(X,'indexed');
 % subplot(1,2,1)
 % imshow(X)
@@ -39,7 +39,7 @@ F(box)=7;
 % F=placebox(F,180,300,0);  %platziert Box: eingabe(F, x0,y0, alpha)
  
 F=flipud(F);
-% imshow(F);
+imshow(F);
 end
 
 

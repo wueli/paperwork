@@ -1,6 +1,6 @@
 function [FX,FY,DistanceMap]=grad_walls(W)
 parameters;
-
+path('FastMarching_version3b',path);
  SpeedImage=W;
  [X,Y]=find(W==0);
  SourcePoint=[X';Y'];
@@ -22,7 +22,9 @@ parameters;
          FY(i,j)=FY(i,j)*U*exp(-DistanceMap(i,j)/R);
       end
    end
-    
- quiver(FX,FY);
+   %Dieser Befehl würde das ganze Gradientfeld "richtig drehen"
+%     FY=-flipud(FY);
+%     FX=flipud(FX);
+ quiver(FX,FY); 
  
 end
