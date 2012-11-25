@@ -11,11 +11,16 @@ W(wall)=0;
 
 for i=2:7 %iteriert über alle 5 möglichen Ausgänge, d.h. alle Richtungsvektorfelder (normiert)
 [FX,FY]=computeGradientField(f,i);
-if(i==2);
-[a,b]=size(FX);
-FOX=ones(a,b,6);
-FOY=ones(a,b,6);
-end
+    if(i==2);
+        [a,b]=size(FX);
+        FOX=ones(a,b,6);
+        FOY=ones(a,b,6);
+    end
+%Korrigiert die Y-achsen inversion
+FX=flipud(FX);
+FY=-flipud(FY);
+
+%Loop Which gives the FX/FY values in the 3D-Main-Matrix
 [a,b]=size(FX);
 for j=1:a
     for m=1:b

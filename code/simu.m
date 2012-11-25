@@ -5,7 +5,6 @@ function simu(FOX,FOY,WX,WY)
 parameters;
 
 
-%B = edges_id('Bilder/Karte_Potential_edges.bmp','bmp');   %erkennt und Speichert die Ecken, braucht dazu extra manipuliertes Bild
 % [FOX,FOY]=runfast();
 A=initialisation();   %A initialisieren
 %A=rand_startvalue(A);   %ändert das Ziel für eine gewisse Prozentzahl
@@ -18,10 +17,11 @@ open(vidObj);
             [FX1,FY1]=destination(A,i,FOX,FOY);
            
             [FX2,FY2]=walls(A,i,WX,WY);
-            
-%             [FX3,FY3]=other_agents(A,i);
-             FX3=0;
-             FY3=0;
+%             FX2=0;
+%             FY2=0;
+             [FX3,FY3]=other_agents(A,i);
+%              FX3=0;
+%              FY3=0;
             FX=FX1+FX2+FX3;
             F_dest_wall_age_x=[FX1 FX2 FX3 i]
             FY=FY1+FY2+FY3;

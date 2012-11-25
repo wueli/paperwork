@@ -25,6 +25,6 @@ path('FastMarching_version3b',path);
    %Dieser Befehl würde das ganze Gradientfeld "richtig drehen"
 %     FY=-flipud(FY);
 %     FX=flipud(FX);
- quiver(FX,FY); 
+
  
 end

@@ -1,5 +1,5 @@
 %parameters
-nof_agents=3;
+nof_agents=2;
 pxm=15; %pixel pro meter3
 
 v0=1.3*pxm;     %durchschnittliche Laufgeschwindigkeit
@@ -7,8 +7,8 @@ s=0.3*pxm;      %Standardabweichung von v0
 Tau=0.5;    %Faktor bei Kraft zum Ziel
 t=0.1;     %delta t
 
-a=[180 200];      %erster Zielbereich, x-Bereich
-b=[80 100];    %y-Bereich
+a=[130 170];      %erster Zielbereich, x-Bereich
+b=[230 250];    %y-Bereich
 
 grad_faktor=2000/255;    %Faktor gradient
 iter=300;                %Anzahl Iterationen
@@ -27,8 +27,7 @@ R=0.2*pxm;
 percentage=0.5;     %The value of papertaker in % (zufallsverteilt)
 
 
-% Bild wird eingelesen, als Hintergrund, wird auch für polygon_id
-% gebraucht!
+% Bild wird eingelesen, als Hintergrund!
 [X,map]=imread('Bilder/PlanBhf_box.bmp','bmp');   
  
 gray=ind2gray(X,map); 
