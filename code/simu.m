@@ -1,6 +1,6 @@
 %pedestrian simulation
 
-function simu(FOX,FOY,WX,WY)
+function simu(FOX,FOY,WX,WY,ZB)
 
 parameters;
 
@@ -12,6 +12,7 @@ A=initialisation();   %A initialisieren
 vidObj=VideoWriter('simulation.avi');
 open(vidObj);
     for n=1:iter
+        A
         for i=1:nof_agents
            
             [FX1,FY1]=destination(A,i,FOX,FOY);
@@ -23,12 +24,12 @@ open(vidObj);
 %              FX3=0;
 %              FY3=0;
             FX=FX1+FX2+FX3;
-            F_dest_wall_age_x=[FX1 FX2 FX3 i]
+           F_dest_wall_age_x=[FX1 FX2 FX3 i;FY1 FY2 FY3 i]
             FY=FY1+FY2+FY3;
-            F_dest_wall_age_y=[FY1 FY2 FY3 i]
+         %  F_dest_wall_age_y=[FY1 FY2 FY3 i]
             
             A=int(A,i,FX,FY);
-            A=destination_change(A,i);
+            A=destination_change(A,i,ZB);
         end
         M=plotter(A,n,WX,WY);
         

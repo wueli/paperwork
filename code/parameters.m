@@ -1,11 +1,12 @@
 %parameters
-nof_agents=2;
+nof_agents=6;
 pxm=15; %pixel pro meter3
 
 v0=1.3*pxm;     %durchschnittliche Laufgeschwindigkeit
 s=0.3*pxm;      %Standardabweichung von v0
 Tau=0.5;    %Faktor bei Kraft zum Ziel
 t=0.1;     %delta t
+pb_time=3;
 
 a=[130 170];      %erster Zielbereich, x-Bereich
 b=[230 250];    %y-Bereich
@@ -21,7 +22,7 @@ lambda=0.75;
 A2=3*pxm;
 B2=0.2*pxm;
 
-U=10*pxm;
+U=10*pxm; %=10
 R=0.2*pxm;
 
 percentage=0.5;     %The value of papertaker in % (zufallsverteilt)
