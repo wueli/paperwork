@@ -4,7 +4,7 @@ function [FOX,FOY,WX,WY,ZB] = runfast()
 %read picture/generate forcfield
 
 f=getmap();
-[ZB(:,1),ZB(:,2)]=find(flipud(f)==7);
+[ZB(:,1),ZB(:,2)]=find(flipud(f)==8);
 wall=find(f==0); %wall = 0
 W=ones(size(f));
 W(wall)=0;
