@@ -1,20 +1,22 @@
 function [A,r]=initialisation(A,r,nn)    
 parameters;
+
+if size(A,1)<max_nof
 r=r+rand*pers_per_s*t;
 
     for i=1+size(A,1):size(A,1)+r-rem(r,1)
         start=rand;
         goal=rand;
         paper=rand;
-        s_g_p=[start goal paper]
+        %s_g_p=[start goal paper]
         A(i,:)=0;
         if start<=p_1
         %% start point 1
-        A(i,1)=(130+272)/2+rand*(130-272)/2;                                       
-        A(i,2)=522;
+        A(i,1)=(128+271)/2+(rand-0.5)*(128-271);                                       
+        A(i,2)=10;
         A(i,10)=1;
         A(i,3)=0;                 
-        A(i,4)=-(v0+randn*s_v0);
+        A(i,4)=(v0+randn*s_v0);
             %% different goals from 1
             if goal<p_12
                 A(i,8)=2;
@@ -29,7 +31,7 @@ r=r+rand*pers_per_s*t;
         elseif start<=p_1+p_2
         %% startpoint 2
         A(i,1)=10;                                       
-        A(i,2)=(205+225)/2+rand*(205-225)/2; 
+        A(i,2)=(205+225)/2+(rand-0.5)*(205-225); 
         A(i,10)=2;
         A(i,3)=v0+randn*s_v0;                
         A(i,4)=0;
@@ -47,7 +49,7 @@ r=r+rand*pers_per_s*t;
         elseif start<=p_1+p_2+p_3
         %% startpoint 3
         A(i,1)=340;                                       
-        A(i,2)=(88+222)/2+rand*(88-222)/2;
+        A(i,2)=(306+443)/2+(rand-0.5)*(306-443);
         A(i,10)=3;
         A(i,3)=-(v0+randn*s_v0);               
         A(i,4)=0;
@@ -63,8 +65,9 @@ r=r+rand*pers_per_s*t;
             end
 
         elseif start<=p_1+p_2+p_3+p_4
+       %% startpoint 4
         A(i,1)=340;                                       
-        A(i,2)=(306+443)/2+rand*(306-443)/2;
+        A(i,2)=(88+222)/2+(rand-0.5)*(88-222);
         A(i,10)=4;
         A(i,3)=-(v0+randn*s_v0);                 
         A(i,4)=0;
@@ -80,11 +83,12 @@ r=r+rand*pers_per_s*t;
             end
             
         else
-        A(i,1)=(128+271)/2+rand*(128-271)/2;                                       
-        A(i,2)=10;
+        %% startpoint 5    
+        A(i,1)=(130+272)/2+(rand-0.5)*(130-272);
+        A(i,2)=522;
         A(i,10)=5;
         A(i,3)=0;                 
-        A(i,4)=(v0+randn*s_v0);
+        A(i,4)=-(v0+randn*s_v0);
             %% different goals from 5
             if goal<p_51
                 A(i,8)=1;
@@ -111,7 +115,8 @@ r=r+rand*pers_per_s*t;
     end
 
     r=rem(r,1);
- end
+end
+end
 
 %         A(i,1)     %Startposition x
 %         A(i,2)     %startposition y

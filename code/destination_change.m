@@ -3,7 +3,7 @@ parameters;
 
 if find(ismember(find(ZB(:,1)==round(A(i,2))),find(ZB(:,2)==round(A(i,1)))))
         
-        A(i,6)=A(i,6)+1
+        A(i,6)=A(i,6)+1;
     
         if     A(i,6)>=pb_time/t
             A(i,5)=A(i,8); 

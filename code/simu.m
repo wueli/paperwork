@@ -9,6 +9,7 @@ r=0;
 A=zeros(0,11);
 C=zeros(1,4);
 parameters;
+graycl=getimage;
 s=size(WX);
 
 % [FOX,FOY]=runfast();
@@ -20,7 +21,7 @@ open(vidObj);
     for n=1:iter
         [A,r]=initialisation(A,r,n);
         i1=1;
-        Aafterint=A
+        A
         while i1 <= size(A,1) 
             [FX1,FY1]=destination(A,i1,FOX,FOY);
  
@@ -32,18 +33,18 @@ open(vidObj);
 %              FX3=0;
 %              FY3=0;
             FX=FX1+FX2+FX3;
-           %F_dest_wall_age_x=[FX1 FX2 FX3 i;FY1 FY2 FY3 i]
+          % F_dest_wall_age_x=[FX1 FX2 FX3 i1;FY1 FY2 FY3 i1]
             FY=FY1+FY2+FY3;
          %  F_dest_wall_age_y=[FY1 FY2 FY3 i]
             
             [A,C]=int(A,i1,FX,FY,s,n,C);
             A=destination_change(A,i1,ZB);
             i1=i1+1;
-            Aisnan=isnan(A)
+            
         end
-        M=plotter(A,n,WX,WY);
+        plotter(A,graycl);
         
-          currentframe=getframe;
+    currentframe=getframe;
     writeVideo(vidObj,currentframe);
     end
   

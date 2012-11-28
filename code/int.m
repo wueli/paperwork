@@ -14,7 +14,7 @@ parameters;
      A(i,1)=A(i,1)+A(i,3)*t;    %Aktuelle Position plus Geschwindigkeit mal t gleich neue Position
      A(i,2)=A(i,2)+A(i,4)*t;
      
-     [A,C]=exit(A,i,s,nn,C);
+     [A,C]=exit2(A,i,s,nn,C);
 
      %Aintout=A
 end
