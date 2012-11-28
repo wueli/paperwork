@@ -19,15 +19,15 @@ I=im2double(X,'indexed');
 % imshow(I)
 
 [n,m]=size(I);
-wall=find(I==0);
-exit_west=find(I==6);
-exit_south=find(I==7);
-exit_northr=find(I==5);
-exit_northl=find(I==4);
-exit_east=find(I==2);
-space=find(I==8);
-box=find(I==1);
-box_area=find(I==3);
+wall=find(I==1);
+exit_west=find(I==7);
+exit_south=find(I==8);
+exit_northr=find(I==6);
+exit_northl=find(I==5);
+exit_east=find(I==3);
+space=find(I==9);
+box=find(I==2);
+box_area=find(I==4);
 F=zeros(n,m);
 F(wall)=0;
 F(space)=1;
