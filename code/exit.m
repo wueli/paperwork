@@ -1,4 +1,4 @@
-function C=exit(A,i,s,nn,C)   
+function [A,C]=exit(A,i,s,nn,C)   
 if A(i,1)<0 || A(i,1)>s(2) || A(i,2)<0 || A(i,2)>s(1)
          AS=A
          s
