@@ -1,41 +1,42 @@
 function [FOX,FOY,WX,WY,ZB] = runfast()
+%Read the painted picture into the programme and generates the 
+%gradientfield for each exit and the forcefield for the walls
+%Output: Gradientfield, directed to the exits (FOX,FOY)
+%        Forcefield the simulate the wall rejection (WX,WY)
+%        Value of the box_area (where the destination_change happens)
 
-
-%read picture/generate forcfield
-
+%Converts the picture into useable data
 f=getmap();
+
+%reads the value of the box_area
 [ZB(:,1),ZB(:,2)]=find(flipud(f)==8);
-wall=find(f==0); %wall = 0
+
+%creates a matrix with only "wall=0" and "empty=1" entries
+wall=find(f==0); 
 W=ones(size(f));
 W(wall)=0;
+
+%produces the forcefield for the walls
 [WX,WY,DistanceMap]=grad_walls(W);
 
-for i=2:7 %iteriert über alle 5 möglichen Ausgänge, d.h. alle Richtungsvektorfelder (normiert)
-[FX,FY]=computeGradientField(f,i);
-    if(i==2);
-        [a,b]=size(FX);
-        FOX=ones(a,b,6);
-        FOY=ones(a,b,6);
-    end
-%Korrigiert die Y-achsen inversion
-FX=flipud(FX);
-FY=-flipud(FY);
+    for i=2:7 %iterates over all 5 possible exits
+    [FX,FY]=computeGradientField(f,i);
+            if(i==2);  %creates for the first run-through a empty Matrix
+                [a,b]=size(FX);
+                FOX=ones(a,b,6);
+                FOY=ones(a,b,6);
+            end
+    %Corrects the Y-axis inversion
+    FX=flipud(FX);
+    FY=-flipud(FY);
 
-%Loop Which gives the FX/FY values in the 3D-Main-Matrix
-[a,b]=size(FX);
-for j=1:a
-    for m=1:b
-FOX(j,m,i-1)=FX(j,m);
-FOY(j,m,i-1)=FY(j,m);
+    %Loop Which readss the FX/FY values in a bigger R^3-Matrix
+    [a,b]=size(FX);
+            for j=1:a
+                      for m=1:b
+                        FOX(j,m,i-1)=FX(j,m);
+                        FOY(j,m,i-1)=FY(j,m);
+                      end
+            end
     end
-end
-
-        % FOX(:,:,i-1)=FX;   %Speichert Richungsvektor (e) von den Zeilen 2:6 in x-Richtung
-        % FOY(:,:,i-1)=FY; %(Flipud??)   %Speichert Richungsvektor (e) von den Zeilen 2:6 in y-Richtung
-        % quiver(FOX(:,:,i-1),FOY(:,:,i-1));
-        %quiver(FX,FY) %Achtung FX(0,0) ist unten links!! (531/0)oben links
-        %quiver(FOX(:,:,1),FOY(:,:,1));
-        %FX(200,300)
-        %FY(200,300)
-end
 end
