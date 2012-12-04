@@ -6,8 +6,10 @@ close all
 clc
 load('FOX_FOY_WX_WY_ZB.mat')
 r=0;
+r_train=0;
 A=zeros(0,11);
 C=zeros(1,4);
+c=0;
 parameters;
 graycl=getimage;
 s=size(WX);
@@ -19,9 +21,9 @@ s=size(WX);
 vidObj=VideoWriter('simulation.avi');
 open(vidObj);
     for n=1:iter
-        [A,r]=initialisation(A,r,n);
+        [A,r,r_train,c]=initialisation(A,r,r_train,n,c);
         i1=1;
-        A
+       % A
         while i1 <= size(A,1) 
             [FX1,FY1]=destination(A,i1,FOX,FOY);
  
@@ -33,7 +35,7 @@ open(vidObj);
 %              FX3=0;
 %              FY3=0;
             FX=FX1+FX2+FX3;
-          % F_dest_wall_age_x=[FX1 FX2 FX3 i1;FY1 FY2 FY3 i1]
+        %  F_dest_wall_age_x_y=[FX1 FX2 FX3 i1;FY1 FY2 FY3 i1]
             FY=FY1+FY2+FY3;
          %  F_dest_wall_age_y=[FY1 FY2 FY3 i]
             
@@ -42,7 +44,7 @@ open(vidObj);
             i1=i1+1;
             
         end
-        plotter(A,graycl);
+        plotter(A,graycl,n);
         
     currentframe=getframe;
     writeVideo(vidObj,currentframe);

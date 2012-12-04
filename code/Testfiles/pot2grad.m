@@ -16,6 +16,11 @@ Fy=fliplr(Fy);
 Fx=-Fx;
 Fx=grad_faktor*Fx;                  %Streckung
 Fy=grad_faktor*Fy;
-quiver(Fx,Fy)
 pot=fliplr(pot);
+% hold on
+ subplot(1,2,1)
+contour(pot);
+ subplot(1,2,2)
+ quiver(Fx,Fy);
+
 end

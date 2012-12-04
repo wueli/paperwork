@@ -1,15 +1,13 @@
-function [A,r]=initialisation(A,r,nn)    
+function [A,r,r_train,c]=initialisation(A,r,r_train,nn,c)    
 parameters;
 
-if size(A,1)<max_nof
 r=r+rand*pers_per_s*t;
-
     for i=1+size(A,1):size(A,1)+r-rem(r,1)
         start=rand;
         goal=rand;
         paper=rand;
-        %s_g_p=[start goal paper]
         A(i,:)=0;
+        
         if start<=p_1
         %% start point 1
         A(i,1)=(128+271)/2+(rand-0.5)*(128-271);                                       
@@ -27,26 +25,18 @@ r=r+rand*pers_per_s*t;
             else 
                 A(i,8)=5;
             end
-
-        elseif start<=p_1+p_2
-        %% startpoint 2
-        A(i,1)=10;                                       
-        A(i,2)=(205+225)/2+(rand-0.5)*(205-225); 
-        A(i,10)=2;
-        A(i,3)=v0+randn*s_v0;                
-        A(i,4)=0;
-            %% different goals from 2
-            if goal<p_21
-                A(i,8)=1;
-            elseif goal<p_21+p_23
-                A(i,8)=3;
-            elseif goal<p_21+p_23+p_24
-                A(i,8)=4;
-            else 
-                A(i,8)=5;
+            
+            %% papertaker or not
+            if paper<p1_paper
+                A(i,5)=6;
+                A(i,11)=1;
+            else
+                A(i,5)=A(i,8);
+                A(i,11)=0;
             end
-        
-        elseif start<=p_1+p_2+p_3
+            
+            
+        elseif start<=p_1+p_3
         %% startpoint 3
         A(i,1)=340;                                       
         A(i,2)=(306+443)/2+(rand-0.5)*(306-443);
@@ -63,8 +53,18 @@ r=r+rand*pers_per_s*t;
             else 
                 A(i,8)=5;
             end
-
-        elseif start<=p_1+p_2+p_3+p_4
+            
+            %% papertaker or not
+            if paper<p3_paper
+                A(i,5)=6;
+                A(i,11)=1;
+            else
+                A(i,5)=A(i,8);
+                A(i,11)=0;
+            end
+            
+            
+        elseif start<=p_1+p_3+p_4
        %% startpoint 4
         A(i,1)=340;                                       
         A(i,2)=(88+222)/2+(rand-0.5)*(88-222);
@@ -81,6 +81,15 @@ r=r+rand*pers_per_s*t;
             else 
                 A(i,8)=5;
             end
+            %% papertaker or not
+            if paper<p4_paper
+                A(i,5)=6;
+                A(i,11)=1;
+            else
+                A(i,5)=A(i,8);
+                A(i,11)=0;
+            end
+            
             
         else
         %% startpoint 5    
@@ -99,24 +108,73 @@ r=r+rand*pers_per_s*t;
             else 
                 A(i,8)=4;
             end
-        end
+            %% papertaker or not
+            if paper<p5_paper
+                A(i,5)=6;
+                A(i,11)=1;
+            else
+                A(i,5)=A(i,8);
+                A(i,11)=0;
+            end
+        end   
+
         
-        %% papertaker or not
-        if paper<p_paper
-            A(i,5)=6;
-            A(i,11)=1;
-        else
-            A(i,5)=A(i,8);
-            A(i,11)=0;
-        end
+        %% Allgemein
         A(i,6)=0;
         A(i,7)=abs(A(i,3)+A(i,4));   %Gaussverteilte Geschwindigkeit v0
         A(i,9)=nn;               %start time 
+        r=rem(r,1);
+        
     end
+    
+    
+%% agents from train
 
-    r=rem(r,1);
+
+        if c<nof_train && nn*t>train_delay;
+         r_train=r_train+rand*pers_per_s_train*t;   
+            for i=1+size(A,1):size(A,1)+r_train-rem(r_train,1)
+            paper=rand;
+            goal=rand;
+            A(i,:)=0;
+            c=c+1;
+            %% startpoint 2
+            A(i,1)=30;                                       
+            A(i,2)=(205+325)/2+(rand-0.5)*(205-325); 
+            A(i,10)=2;
+            A(i,3)=v0+randn*s_v0;                
+            A(i,4)=0;
+            
+            %% different goals from 2
+            if goal<p_21
+                A(i,8)=1;
+            elseif goal<p_21+p_23
+                A(i,8)=3;
+            elseif goal<p_21+p_23+p_24
+                A(i,8)=4;
+            else 
+                A(i,8)=5;
+            end
+            
+            %% papertaker or not
+            if paper<p2_paper
+                A(i,5)=6;
+                A(i,11)=1;
+            else
+                A(i,5)=A(i,8);
+                A(i,11)=0;
+            end
+    
+            %% Allgemein
+            A(i,6)=0;
+            A(i,7)=abs(A(i,3)+A(i,4));   %Gaussverteilte Geschwindigkeit v0
+            A(i,9)=nn;               %start time 
+
+            r_train=rem(r_train,1);
+            end
+        end
 end
-end
+            
 
 %         A(i,1)     %Startposition x
 %         A(i,2)     %startposition y
