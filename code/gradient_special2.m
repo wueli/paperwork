@@ -1,6 +1,11 @@
 function [FFX FFY] = gradient_special2(M)
-%GRADIENT_SPECIAL Summary of this function goes here
-%   Detailed explanation goes here
+%This function is a copy from the "Airplane_Evacuation-paper"
+%modified for our own purpose
+
+%Spezial implementation of a gradientfield-computation
+%   Imput: Distancemap M
+%   Outputs: normalised gradientfield (FFX,FFY)
+
 [a b]=size(M);
 
 FX=zeros(a,b);

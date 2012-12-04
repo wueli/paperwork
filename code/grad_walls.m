@@ -1,13 +1,23 @@
 function [FX,FY,DistanceMap]=grad_walls(W)
 parameters;
 path('FastMarching_version3b',path);
+%converts a Matrix with (1,0) entries into a forcefield
+%imput:     The wall/empty matrix W
+%Outputs:   Forcefield (FX,FY) to apply the rejection
+%           Distancemap 
+
  SpeedImage=W;
  [X,Y]=find(W==0);
  SourcePoint=[X';Y'];
+ 
+ %Fast-Marching-Algorithmus 
  DistanceMap= msfm(SpeedImage, SourcePoint); 
  DistanceMap=flipud(DistanceMap);
+ 
+ %Creates gradientfield
  [FX,FY]=gradient(DistanceMap);
  
+ %Normalise the Gradientfield
  s=size(FX);
    for i=1:s(1)
        for j=1:s(2)
@@ -22,9 +32,5 @@ path('FastMarching_version3b',path);
          FY(i,j)=FY(i,j)*U*exp(-DistanceMap(i,j)/R);
       end
    end
-   %Dieser Befehl würde das ganze Gradientfeld "richtig drehen"
-%     FY=-flipud(FY);
-%     FX=flipud(FX);
 
- 
 end
