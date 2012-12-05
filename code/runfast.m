@@ -1,4 +1,4 @@
-function [FOX,FOY,WX,WY,ZB] = runfast()
+function [FOX,FOY,WX,WY,DistanceMap,ZB] = runfast()
 %Read the painted picture into the programme and generates the 
 %gradientfield for each exit and the forcefield for the walls
 %Output: Gradientfield, directed to the exits (FOX,FOY)

@@ -26,11 +26,11 @@ path('FastMarching_version3b',path);
        end
    end
       
-   for i=1:s(1)
-     for j=1:s(2)
-         FX(i,j)=FX(i,j)*U*exp(-DistanceMap(i,j)/R);
-         FY(i,j)=FY(i,j)*U*exp(-DistanceMap(i,j)/R);
-      end
-   end
+%   for i=1:s(1)
+%      for j=1:s(2)
+%          FX(i,j)=FX(i,j)*U*exp(-DistanceMap(i,j)/R);
+%          FY(i,j)=FY(i,j)*U*exp(-DistanceMap(i,j)/R);
+%       end
+%    end
 
 end

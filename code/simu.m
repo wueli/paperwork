@@ -4,13 +4,21 @@ function [C]=simu
 clear all
 close all
 clc
-load('FOX_FOY_WX_WY_ZB.mat')
-r=0;
+load('FOX_FOY_W_norm_WY_norm_DistanceMap_ZB.mat')
+parameters;
+  for i=1:size(WX_norm,1)
+     for j=1:size(WX_norm,2)
+         WX(i,j)=WX_norm(i,j)*U*exp(-DistanceMap(i,j)/R);
+         WY(i,j)=WY_norm(i,j)*U*exp(-DistanceMap(i,j)/R);
+      end
+  end
+  
+  r=0;
 r_train=0;
 A=zeros(0,11);
 C=zeros(1,4);
 c=0;
-parameters;
+
 graycl=getimage;
 s=size(WX);
 

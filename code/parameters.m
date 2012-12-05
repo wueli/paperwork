@@ -8,7 +8,7 @@ pers_per_s=10; %new agents per socond
 
 train_delay=10;
 pers_per_s_train=8;
-nof_train=100;
+nof_train=1200;
 
 
 v0=1.3*pxm;     %durchschnittliche Laufgeschwindigkeit
