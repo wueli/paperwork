@@ -4,10 +4,10 @@ t=0.05;     %delta t
 iter=1500;
 pxm=15; %pixel pro meter3
 
-pers_per_s=10; %new agents per socond
+pers_per_s=0.1; %new agents per socond
 
 train_delay=10;
-pers_per_s_train=8;
+pers_per_s_train=0;
 nof_train=1200;
 
 

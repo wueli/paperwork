@@ -43,7 +43,7 @@ open(vidObj);
 %              FX3=0;
 %              FY3=0;
             FX=FX1+FX2+FX3;
-        %  F_dest_wall_age_x_y=[FX1 FX2 FX3 i1;FY1 FY2 FY3 i1]
+        F_dest_wall_age_x_y=[FX1 FX2 FX3 i1;FY1 FY2 FY3 i1]
             FY=FY1+FY2+FY3;
          %  F_dest_wall_age_y=[FY1 FY2 FY3 i]
             
