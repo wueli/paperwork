@@ -2,7 +2,7 @@ function [FX,FY,DistanceMap]=grad_walls(W)
 parameters;
 path('FastMarching_version3b',path);
 %converts a Matrix with (1,0) entries into a forcefield
-%imput:     The wall/empty matrix W
+%imput:     The wall/space matrix W
 %Outputs:   Forcefield (FX,FY) to apply the rejection
 %           Distancemap 
 

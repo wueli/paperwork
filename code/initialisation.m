@@ -1,7 +1,20 @@
 function [A,r,r_train,c]=initialisation(A,r,r_train,nn,c)    
 parameters;
 
-r=r+rand*pers_per_s*t;
+%initialises startposition new agents
+%         A(i,1)     %start position x
+%         A(i,2)     %startposition y
+%         A(i,3)     %speed x
+%         A(i,4)     %speed y
+%         A(i,5)     %current goal (1-6) =>inital goal(whether final line or paperbox)
+%         A(i,6)     %time inside paperbox area 
+%         A(i,7)     %Gaussverteilte Geschwindigkeit v0
+%         A(i,8)     %Final goal (1-6) (can't be changed)
+%         A(i,9)     %start time
+%         A(i,10)    %number of start position (1-6) 
+%         A(i,11)    %papertaker 1 or 0
+
+r=r+rand*2*pers_per_s*t; 
     for i=1+size(A,1):size(A,1)+r-rem(r,1)
         start=rand;
         goal=rand;
@@ -131,15 +144,15 @@ r=r+rand*pers_per_s*t;
 %% agents from train
 
 
-        if c<nof_train && nn*t>train_delay;
-         r_train=r_train+rand*pers_per_s_train*t;   
+        if c<nof_train && nn*t>train_delay;  %wait until train arrives (train delay) and initialise maximal not_train agents
+         r_train=r_train+rand*2*pers_per_s_train*t;   
             for i=1+size(A,1):size(A,1)+r_train-rem(r_train,1)
             paper=rand;
             goal=rand;
             A(i,:)=0;
             c=c+1;
             %% startpoint 2
-            A(i,1)=30;                                       
+            A(i,1)=10;                                       
             A(i,2)=(205+325)/2+(rand-0.5)*(205-325); 
             A(i,10)=2;
             A(i,3)=v0+randn*s_v0;                
@@ -165,10 +178,10 @@ r=r+rand*pers_per_s*t;
                 A(i,11)=0;
             end
     
-            %% Allgemein
+            %% general
             A(i,6)=0;
-            A(i,7)=abs(A(i,3)+A(i,4));   %Gaussverteilte Geschwindigkeit v0
-            A(i,9)=nn;               %start time 
+            A(i,7)=abs(A(i,3)+A(i,4));   %Gauss derivated velocity v0
+            A(i,9)=nn;                   %starting time 
 
             r_train=rem(r_train,1);
             end
@@ -176,14 +189,4 @@ r=r+rand*pers_per_s*t;
 end
             
 
-%         A(i,1)     %Startposition x
-%         A(i,2)     %startposition y
-%         A(i,3)     %speed x
-%         A(i,4)     %speed y
-%         A(i,5)     % current goal (1-6) =>inital goal(wether final line or paperbox)
-%         A(i,6)     % time at paperbox
-%         A(i,7)     %Gaussverteilte Geschwindigkeit v0
-%         A(i,8)     %Final goal (1-6) (can't be changed)
-%         A(i,9)     %start time
-%         A(i,10)    %start position
-%         A(i,11)    %papertaker?
+
