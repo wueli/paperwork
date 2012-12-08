@@ -180,7 +180,7 @@ r=r+rand*2*pers_per_s*t;
     
             %% general
             A(i,6)=0;
-            A(i,7)=abs(A(i,3)+A(i,4));   %Gauss derivated velocity v0
+            A(i,7)=abs(A(i,3)+A(i,4));   %Gauss distributed velocity v0
             A(i,9)=nn;                   %starting time 
 
             r_train=rem(r_train,1);
