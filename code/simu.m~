@@ -46,7 +46,7 @@ for n=1:iter  %time iteration
           A=destination_change(A,i1,ZB);
             
           i1=i1+1;
-     end
+        end
         
     for z=1:size(A,1)
             F(round(A(z,2)),round(A(z,1))) = F(round(A(z,2)),round(A(z,1))) + 1; 
