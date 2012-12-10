@@ -1,6 +1,6 @@
 function graycl=getimage()
 %get the image for plotting
-[X,map]=imread('Bilder/PlanBhf_box.bmp','bmp');   
+[X,map]=imread('Bilder/PlanBhf_boxA.bmp','bmp');   
 gray=ind2gray(X,map); 
 [a,b]=size(X);
 for m=1:a

@@ -26,7 +26,7 @@ r_agents=2*0.3*pxm;
 lambda=0.75;
 sight_radius=2*pxm;
 
-U=10*pxm;            %parameter for force of walls
+U=15*pxm;            %parameter for force of walls
 R=0.2*pxm;           %0.2
 
 pb_time=2.5;         %time to take a paper out of the box
