@@ -8,7 +8,7 @@ pers_per_s=5;        %new agents per socond except of agents gettig off the trai
 
 train_delay=30;      %time until train arrives
 pers_per_s_train=2;  %number of agents per second getting of the train
-nof_train=400;
+nof_train=200;
 
 
 v0=1.3*pxm;          %average velocity of pedestrians

@@ -3,7 +3,7 @@ clear all
 close all
 clc
 
-load('a/FOX_FOY_WX_WY_DistanceMap_C.mat')  %load vector files calculatey by runfast.m
+load('a/FOX_FOY_WX_WY_DistanceMap_ZB.mat')  %load vector files calculatey by runfast.m
 parameters; %load parameters.m
 
 for i=1:size(WX,1)   %calculation of repulsion force of the walls
