@@ -4,11 +4,11 @@ t=0.05;              %delta t
 iter=400/0.05;       %number of time iterations, simulated time = iter*t
 pxm=15;              %pixel per meter
 
-pers_per_s=5;        %new agents per socond except of agents gettig off the train
+pers_per_s=4;        %new agents per socond except of agents gettig off the train
 
 train_delay=30;      %time until train arrives
 pers_per_s_train=2;  %number of agents per second getting of the train
-nof_train=200;
+nof_train=300;
 
 
 v0=1.3*pxm;          %average velocity of pedestrians
@@ -26,7 +26,7 @@ r_agents=2*0.3*pxm;
 lambda=0.75;
 sight_radius=2*pxm;
 
-U=15*pxm;            %parameter for force of walls
+U=13*pxm;            %parameter for force of walls
 R=0.2*pxm;           %0.2
 
 pb_time=2.5;         %time to take a paper out of the box
@@ -43,9 +43,9 @@ p_4=0.25;            %...
 %p_5=0.25;
 
 p_12=0.1;            %probability of a pedestrian from statrtpoint 1 to go to destination 2
-p_13=0.1;            %probability of a pedestrian from statrtpoint 1 to go to destination 3
+p_13=0;            %probability of a pedestrian from statrtpoint 1 to go to destination 3
 p_14=0.4;            %...
-%p_15=0.4;
+%p_15=0.5;
 
 p_21=0.25;  %...
 p_23=0.25;
@@ -62,10 +62,10 @@ p_42=0.1;
 p_43=0;
 %p_45=0.45;
 
-p_51=0.34;
+p_51=0.5;
 p_52=0.1;
 p_53=0.4;
-%p_54=0.1;
+%p_54=0;
 
 
 
