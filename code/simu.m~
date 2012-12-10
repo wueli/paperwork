@@ -3,13 +3,13 @@ clear all
 close all
 clc
 
-load('a/FOX_FOY_WX_WY_DistanceMap_ZB.mat')  %load vector files calculatey by runfast.m
+load('FOX_FOY_W_norm_WY_norm_DistanceMap_ZB.mat')  %load vector files calculatey by runfast.m
 parameters; %load parameters.m
 
-for i=1:size(WX,1)   %calculation of repulsion force of the walls
-    for j=1:size(WX,2)
-        WX(i,j)=WX(i,j)*U*exp(-DistanceMap(i,j)/R);
-        WY(i,j)=WY(i,j)*U*exp(-DistanceMap(i,j)/R);
+for i=1:size(WX_norm,1)   %calculation of repulsion force of the walls
+    for j=1:size(WX_norm,2)
+        WX(i,j)=WX_norm(i,j)*U*exp(-DistanceMap(i,j)/R);
+        WY(i,j)=WY_norm(i,j)*U*exp(-DistanceMap(i,j)/R);
     end
 end
   
@@ -46,7 +46,7 @@ for n=1:iter  %time iteration
           A=destination_change(A,i1,ZB);
             
           i1=i1+1;
-     end
+        end
         
     for z=1:size(A,1)
             F(round(A(z,2)),round(A(z,1))) = F(round(A(z,2)),round(A(z,1))) + 1; 
