@@ -1,8 +1,9 @@
-function [] = finalanal(C)
+function [with,without] = finalanal(C)
 %UNTITLED3 Summary of this function goes here
 %   Detailed explanation goes here
 [a,b,c]=size(C);
-
+it=0;
+it2=0;
 %all medians of all conections!!
 for j=1%:c
 [without,with]=analysepart(C(:,:,j));
@@ -20,29 +21,43 @@ for i=1%:c
          if (C(n,4,i)==0)
             itwout=itwout+1;
          medwout(itwout,i)= C(n,1,i);  
+          it2=it2+1;
         end
      %Creates a matrix with all values of the paper-taker medwith
         if (C(n,4,i)==1)
             itwith=itwith+1;
          medwith(itwith,i)= C(n,1,i); 
+         it=it+1;
         end
     end
     
-subplot(2,3,i)
+% subplot(2,3,i)
 x=0:10:max(C(:,1,i));
 hist(C(:,1,i),x);
+xlim([-1000, 7000]);
+ylim([0, 140]);
 med=median(C(:,1,i));
 medw=median(medwith(:,i));
 medo=median(medwout(:,i));
-xlabel({'Median of all values'; med;'Median not-takers';medo;'Median takers';medw});
+xlabel({'Median of all values'; med;'Median takers';medw; 'Median not-takers';medo});
 
 
 end
 aa=median(medwout(:,1)); %median of all not-takers
 ab=median(medwith(:,1)); %medain of all takers
-str=fprintf('Median of all Non-Takers: %i \v Median of all Takers: %i\n', aa, ab);
+ittot=it2+it;
+str=fprintf('Median of all Non-Takers: %i \v Median of all Takers: %i \v #tot: %i #taker: %i #not-taker: %i \n', aa, ab,ittot, it, it2 );
 
-% x=without-1.2*without
-
+% %plotet histogramms takers vs not takers
+% subplot(1,2,1)
+% hist(medwout,x)
+% xlim([0, 7000]);
+% ylim([0, 140]);
+% xlabel('not-takers')
+% subplot(1,2,2)
+% hist(medwith,x)
+% xlim([0, 7000]);
+% ylim([0, 20]);
+% xlabel('takers')
 end
 

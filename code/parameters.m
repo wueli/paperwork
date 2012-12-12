@@ -1,14 +1,14 @@
 %parameters
 
 t=0.05;              %delta t
-iter=400/0.05;       %number of time iterations, simulated time = iter*t
+iter=370/0.05;       %number of time iterations, simulated time = iter*t
 pxm=15;              %pixel per meter
 
-pers_per_s=4;        %new agents per socond except of agents gettig off the train
+pers_per_s=3.25;        %new agents per socond except of agents gettig off the train
 
 train_delay=30;      %time until train arrives
-pers_per_s_train=2;  %number of agents per second getting of the train
-nof_train=300;
+pers_per_s_train=2.5;  %number of agents per second getting of the train
+nof_train=500;
 
 
 v0=1.3*pxm;          %average velocity of pedestrians
@@ -26,16 +26,16 @@ r_agents=2*0.3*pxm;
 lambda=0.75;
 sight_radius=2*pxm;
 
-U=13*pxm;            %parameter for force of walls
-R=0.2*pxm;           %0.2
+U=20*pxm;            %parameter for force of walls
+R=0.3*pxm;           %0.2
 
 pb_time=2.5;         %time to take a paper out of the box
 
-p1_paper=0.08;       %probability of beeing a paper taker from agents from starting point 1
-p2_paper=0.20;       %probability of beeing a paper taker from agents from starting point 2
-p3_paper=0.08;       %...
-p4_paper=0.08;
-p5_paper=0.08;
+p1_paper=0.04;       %probability of beeing a paper taker from agents from starting point 1
+p2_paper=0.18;       %probability of beeing a paper taker from agents from starting point 2
+p3_paper=0.04;       %...
+p4_paper=0.04;
+p5_paper=0.04;
 
 p_1=0.25;            %probability to start at startpoint 1
 p_3=0.25;            %probability to start at startpoint 1

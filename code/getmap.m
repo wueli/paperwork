@@ -1,7 +1,7 @@
 function [F] = getmap()
 %decode color coded map
 
-[X,map]=imread('Bilder/PlanBhf_BoxF.bmp');
+[X,map]=imread('Bilder/PlanBhf_BoxB2.bmp');
 I=im2double(X,'indexed');
 
 [n,m]=size(I);
